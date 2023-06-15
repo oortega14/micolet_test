@@ -36,6 +36,9 @@ gem "redis", "~> 4.0"
 # Use dotenv to read variables from .env
 gem 'dotenv-rails', groups: [:development, :test]
 
+# Use slim templates 
+gem "slim-rails"
+
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
 
