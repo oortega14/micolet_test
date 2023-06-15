@@ -1,6 +1,7 @@
 doctype html
 html
   head
+    link rel="icon" href="#{asset_path('micolet_miniature.ico')}"
     title
       | MicoletTest
     meta[name="viewport" content="width=device-width,initial-scale=1"]
@@ -10,3 +11,4 @@ html
     = javascript_include_tag "application", "data-turbo-track": "reload", defer: true
   body
     = yield
+    = render 'layouts/flash'

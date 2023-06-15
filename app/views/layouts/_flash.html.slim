@@ -1,0 +1,9 @@
+- flash.each do |key, value|
+  .toast-wrapper
+    .toast-container
+      .toast.fade[aria-atomic="true" aria-live="assertive" role="alert" data-controller="notifications" data-delay="5000" class=flash_class(key)]
+        .toast-body.text-white.flex.items-center.justify-around class=flash_class(key.to_sym)
+          span.ml-2.d-inline = value
+          button.ml-2.mb-1.close.text-white aria-label="Close" data-dismiss="toast" type="button"
+            span aria-hidden="true" &times;
+
