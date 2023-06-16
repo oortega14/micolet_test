@@ -5,6 +5,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    @user_verified = UserService.verify_email(@user)
     if @user.save
       UserMailer.new_subscriber(@user).deliver_now
       redirect_to confirmation_surveys_path(user_id: @user.id), notice: { message: "Usuario creado", toast: :success }
