@@ -6,3 +6,6 @@ import { application } from "./application"
 
 import FormController from "./form_controller"
 application.register("form", FormController)
+
+import NotificationsController from './notifications_controller'
+application.register('notifications', NotificationsController)

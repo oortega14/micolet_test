@@ -1,7 +1,7 @@
-import { Controller } from '@hotwired/stimulus'
+import Notification from 'stimulus-notification'
 
-export default class extends Controller {
+export default class extends Notification {
   connect() {
-    this.element.classList.add('show') // Añade la clase 'show' para mostrar el toast
+    super.connect()
   }
 }
