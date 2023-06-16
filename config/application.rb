@@ -13,7 +13,7 @@ module MicoletTest
 
     # Configuration for the application, engines, and railties goes here.
     config.generators.template_engine = :slim
-
+    config.cache_store = :memory_store, { size: 64.megabytes }
     # These settings can be overridden in specific environments using the files
     # in config/environments, which are processed later.
     #
