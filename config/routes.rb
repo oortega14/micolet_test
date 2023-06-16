@@ -4,4 +4,11 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root to: 'users#new'
   resources :users
+  resources :surveys do
+    collection do
+      get :dismiss
+      get :answer
+      get :confirmation
+    end
+  end
 end

@@ -10,22 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_15_111038) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_16_053229) do
   # These are extensions that must be enabled in order to support this database
+  enable_extension "pgcrypto"
   enable_extension "plpgsql"
 
-  create_table "surveys", force: :cascade do |t|
-    t.string "first_question"
-    t.string "second_question"
-    t.string "third_question"
-    t.string "fourth_question"
-    t.bigint "user_id"
+  create_table "questions", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.text "question"
+    t.text "answer"
+    t.uuid "survey_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["survey_id"], name: "index_questions_on_survey_id"
+  end
+
+  create_table "surveys", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.boolean "completed"
+    t.uuid "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_surveys_on_user_id"
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "email"
     t.jsonb "preferences"
     t.boolean "survey_answered"
@@ -33,5 +40,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_15_111038) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "questions", "surveys"
   add_foreign_key "surveys", "users"
 end
