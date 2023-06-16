@@ -51,9 +51,7 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
 
-# use httparty to call the API to verify emails
-gem 'httparty', '~> 0.13.7'
-
+gem 'faraday', '~> 2.7', '>= 2.7.6'
 # Use Sass to process CSS
 # gem "sassc-rails"
 
