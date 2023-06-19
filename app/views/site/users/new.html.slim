@@ -4,23 +4,26 @@
     .flex.justify-center.m-0
       = image_tag('micolet_logo.png', alt: 'Logo Micolet', class: 'w-[450px]')
     .container.mx-auto.p-4.text-center
-      h1.text-2xl.font-bold.mb-4 Welcome! Soon we will launch our site in this country.
-      h2.text-xl.font-bold.mb-4 Subscribe to receive our newsletter.  
+      h1.text-2xl.font-bold.mb-4 
+        = t("main_page.title")
+      h2.text-xl.font-bold.mb-4 
+        = t("main_page.subtitle")
     .container.mx-auto.p-4.flex.justify-center data-controller="form"
       .w-6/12
-        = form_for(@user) do |f|
+        = form_for(@user, url: site_users_path) do |f|
           div
-            = f.label :email, class: 'block text-xl font-semibold'
-            = f.text_field :email, class: 'form-input mt-1 block w-full p-1 rounded-lg border-2 border-emerald-300 text-center', placeholder: 'hola',
+            = f.label :email, t('main_page.email.title'), class: 'block text-xl font-semibold'
+            = f.text_field :email, class: 'form-input mt-1 block w-full p-1 rounded-lg border-2 border-emerald-300 text-center', placeholder: (t('main_page.email.placeholder')),
               data: { form_target: 'emailInput', action: 'form#onChange' }
           span.mb-4.message
           .mb-4 
-            p.text-xl.font-semibold.mb-4 Preferences
+            p.text-xl.font-semibold.mb-4 
+              = t("main_page.preferences.title")
           .mb-4
             = f.fields_for :preferences do |ff|
               = render 'preference_fields', f: ff
           .mb-4.flex.justify-center
-            = f.button "Subscribe me!", class: 'text-2xl disabled:opacity-75 disabled:hover:bg-emerald-300 rounded-lg bg-emerald-300 text-white border-2 border-white p-2 hover:bg-emerald-400',
+            = f.button t("main_page.submit"), class: 'text-2xl disabled:opacity-75 disabled:hover:bg-emerald-300 rounded-lg bg-emerald-300 text-white border-2 border-white p-2 hover:bg-emerald-400',
               data: { form_target: 'button' }
 .diagonal-container
   .diagonal-line.bg-emerald-300

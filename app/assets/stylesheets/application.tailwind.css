@@ -42,3 +42,7 @@
   transform: skewY(-25deg);
   z-index: -1;
 }
+
+body {
+  font-family: 'Libre Baskerville', serif;
+}

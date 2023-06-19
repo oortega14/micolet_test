@@ -1,0 +1,21 @@
+es:
+  main_page:
+    title: "Bienvenido! Pronto lanzaremos nuestro sitio en este país"
+    subtitle: "Suscribete para recibir nuestro boletin informativo"
+    preferences:
+      title: "Preferencias"
+      first_option: "Moda de Mujer"
+      second_option: "Moda de Hombre"
+      third_option: "Moda de Niños"
+    email:
+      title: "Email:"
+      placeholder: "Escribe tu e-mail aqui"
+    submit: "Quiero suscribirme!"
+  confirmation_page:
+    title: "Gracias por suscribirte!"
+    subtitle: "Tenemos otra sorpresa para ti, Es un descuento especial si contestas la siguiente encuesta"
+    accept: "Contestar Encuesta"
+    reject: "Omitir Encuesta"
+  answers_page:
+    title: "Encuesta Micolet!"
+    next: "Siguiente"

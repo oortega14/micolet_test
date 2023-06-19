@@ -14,6 +14,9 @@ module MicoletTest
     # Configuration for the application, engines, and railties goes here.
     config.generators.template_engine = :slim
     config.cache_store = :memory_store, { size: 64.megabytes }
+    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', 'views', '**', '*.{rb,yml}').to_s]
+    config.i18n.available_locales = %i[en es de fr]
+    config.i18n.default_locale = :en
     # These settings can be overridden in specific environments using the files
     # in config/environments, which are processed later.
     #

@@ -1,6 +1,0 @@
-div
-  h2
-    = question.question
-  = form_tag survey_questions_path, method: :post do
-    = hidden_field_tag :question_id, question.id
-    = text_field_tag :answer, "", id: 'answer-input'

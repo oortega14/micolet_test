@@ -7,7 +7,7 @@
       h1.text-2xl.font-bold.mb-4 Micolet Survey!
     .container.mx-auto.flex.justify-center
       .w-6/12
-        = form_for @answer, url: answers_path(language: params[:language]) do |f|
+        = form_for @answer, url: site_answers_path(language: params[:language]) do |f|
           h3.text-lg.font-bold.mb-4
             = @question.question
           = f.hidden_field :user_id, value: @user.id

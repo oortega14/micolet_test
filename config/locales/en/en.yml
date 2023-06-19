@@ -1,0 +1,21 @@
+en:
+  main_page:
+    title: "Welcome! Soon we will launch our site in this country."
+    subtitle: "Subscribe to receive our newsletter."
+    preferences:
+      title: "Preferences"
+      first_option: "Women's Fashion"
+      second_option: "Men's Fashion"
+      third_option: "Children's Fashion"
+    email:
+      title: "Email"
+      placeholder: "Write your email here"
+    submit: "Subscribe me!"
+  confirmation_page:
+    title: "Thanks for subscribing!"
+    subtitle: "We have another surprise for you, it is a special disccount if you answer the next survey"
+    accept: "Answer Survey"
+    reject: "Dismiss Survey"
+  answers_page:
+    title: "Micolet Survey!"
+    next: "Next"

@@ -1,0 +1,21 @@
+doctype html
+html lang="#{I18n.locale}"
+  head
+    link rel="icon" href="#{asset_path('micolet_miniature.ico')}"
+    link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.css" rel="stylesheet"
+    link[rel="preconnect" href="https://fonts.googleapis.com"]
+    link[rel="preconnect" href="https://fonts.gstatic.com" crossorigin]
+    link[href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"]
+    title
+      | MicoletTest
+    meta[name="viewport" content="width=device-width,initial-scale=1"]
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag "application", "data-turbo-track": "reload"
+    = javascript_include_tag "application", "data-turbo-track": "reload", defer: true
+  body
+    = render partial: "shared/notifications", locals: { message: flash[:notice] }
+    = render partial: "shared/locale"
+    = yield
+    script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"
+    = render 'layouts/flash'
