@@ -9,7 +9,7 @@
     .container.mx-auto.flex.justify-center
       .w-6/12
         .mb-4.flex.justify-center
-          = button_to "Dismiss Survey", survey_path(@user, user_id: @user.id, survey_answered: false), method: :patch, class: "text-2xl disabled:opacity-75 disabled:hover:bg-emerald-300 rounded-lg bg-emerald-300 text-white border-2 border-white p-2 hover:bg-emerald-400 px-5 mr-10"
-          = button_to "Answer Survey", survey_path(@user, user_id: @user.id, survey_answered: true), method: :patch, class: "text-2xl disabled:opacity-75 disabled:hover:bg-emerald-300 rounded-lg bg-emerald-300 text-white border-2 border-white p-2 hover:bg-emerald-400 px-5 ml-10"
+          = button_to "Dismiss Survey", survey_path(@user, user_id: @user.id, answer_survey: false), method: :patch, class: "text-2xl disabled:opacity-75 disabled:hover:bg-emerald-300 rounded-lg bg-emerald-300 text-white border-2 border-white p-2 hover:bg-emerald-400 px-5 mr-10"
+          = button_to "Answer Survey", survey_path(@user, user_id: @user.id, answer_survey: true), method: :patch, class: "text-2xl disabled:opacity-75 disabled:hover:bg-emerald-300 rounded-lg bg-emerald-300 text-white border-2 border-white p-2 hover:bg-emerald-400 px-5 ml-10"
 .diagonal-container
   .diagonal-line-two.bg-emerald-300

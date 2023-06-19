@@ -1,0 +1,18 @@
+.bg-transparent.h-screen.flex.justify-center.items-center
+  #toast-container data-controller="toast"
+  .bg-white.w-5/6.h-5/6.rounded-xl.pt-14.border-2.border-emerald-400
+    .flex.justify-center.m-0
+      = image_tag('micolet_logo.png', alt: 'Logo Micolet', class: 'w-[450px]')
+    .container.mx-auto.p-4.text-center
+      h1.text-2xl.font-bold.mb-4 Micolet Survey!
+    .container.mx-auto.flex.justify-center
+      .w-6/12
+        = form_for @answer, url: answers_path(language: params[:language]) do |f|
+          h3.text-lg.font-bold.mb-4
+            = @question.question
+          = f.hidden_field :user_id, value: @user.id
+          = f.hidden_field :question_id, value: @question.id
+          = f.text_area :answer, rows: 4, class: 'w-full rounded-lg', required: true
+          = f.submit 'Next', class: 'text-2xl rounded-lg bg-emerald-300 text-white px-5 py-2 hover:bg-emerald-400'
+.diagonal-container
+  .diagonal-line-two.bg-emerald-300

@@ -11,24 +11,14 @@
         = form_for(@user) do |f|
           div
             = f.label :email, class: 'block text-xl font-semibold'
-            = f.text_field :email, class: 'form-input mt-1 block w-full p-1 rounded-lg border-2 border-emerald-300', placeholder: 'hola',
+            = f.text_field :email, class: 'form-input mt-1 block w-full p-1 rounded-lg border-2 border-emerald-300 text-center', placeholder: 'hola',
               data: { form_target: 'emailInput', action: 'form#onChange' }
           span.mb-4.message
           .mb-4 
             p.text-xl.font-semibold.mb-4 Preferences
           .mb-4
-            .mb-2
-              = f.check_box :preferences, { multiple: true, class: 'w-4 h-4 text-emerald-600 bg-emerald-100 border-emerald-300 rounded focus:ring-emerald-500 dark:focus:ring-emerald-600 dark:ring-offset-emerald-100 focus:ring-2 dark:bg-emerald-100 dark:border-emerald-600 mr-2',
-                data: { form_target: 'checkboxes', action: 'form#onChange' } }, "women", nil
-              = f.label :preferences, "Women's Fashion", class: 'text-lg'
-            .mb-2
-              = f.check_box :preferences, { multiple: true, class: 'w-4 h-4 text-emerald-600 bg-emerald-100 border-emerald-300 rounded focus:ring-emerald-500 dark:focus:ring-emerald-600 dark:ring-offset-emerald-100 focus:ring-2 dark:bg-emerald-100 dark:border-emerald-600 mr-2',
-                data: { form_target: 'checkboxes', action: 'form#onChange' } }, "men", nil
-              = f.label :preferences, "Men's Fashion", class: 'text-lg'
-            .mb-2
-              = f.check_box :preferences, { multiple: true, class: 'w-4 h-4 text-emerald-600 bg-emerald-100 border-emerald-300 rounded focus:ring-emerald-500 dark:focus:ring-emerald-600 dark:ring-offset-emerald-100 focus:ring-2 dark:bg-emerald-100 dark:border-emerald-600 mr-2',
-                data: { form_target: 'checkboxes', action: 'form#onChange' } }, "children", nil
-              = f.label :preferences, "Children's Fashion", class: 'text-lg'
+            = f.fields_for :preferences do |ff|
+              = render 'preference_fields', f: ff
           .mb-4.flex.justify-center
             = f.button "Subscribe me!", class: 'text-2xl disabled:opacity-75 disabled:hover:bg-emerald-300 rounded-lg bg-emerald-300 text-white border-2 border-white p-2 hover:bg-emerald-400',
               data: { form_target: 'button' }
