@@ -7,10 +7,9 @@ class UserService
   def self.verify_email(user)
     conn = Faraday.new(url: ABSTRACT_API_URL)
     response = conn.get do |req|
-      req.params['api_key'] = 'ab429fe1eae24825bb3b2551c78922a3'
+      req.params['api_key'] = 'b40e796a91ee4a0ba322d0d96bdd04b9'
       req.params['email'] = user.email
     end
-
     if response.success?
       body = JSON.parse(response.body)
       result = body["quality_score"].to_f
@@ -18,12 +17,11 @@ class UserService
         user.email_verified = true
       else
         user.email_verified = false
+        raise EmailVerificationError, I18n.t('errors.email_rejected')
       end
     else
-      # Maneja el caso de error de la llamada a la API
-      puts "Error al verificar el correo electrónico: #{response.status}"
+      raise ApiUnavailableError, I18n.t('errors.api')
     end
-
     user
   end
 end

@@ -1,7 +1,7 @@
 en:
   main_page:
-    title: "Welcome! Soon we will launch our site in this country."
-    subtitle: "Subscribe to receive our newsletter."
+    title: "Welcome! Soon we will launch our site in this country"
+    subtitle: "Subscribe to receive our newsletter"
     preferences:
       title: "Preferences"
       first_option: "Women's Fashion"
@@ -13,9 +13,20 @@ en:
     submit: "Subscribe me!"
   confirmation_page:
     title: "Thanks for subscribing!"
-    subtitle: "We have another surprise for you, it is a special disccount if you answer the next survey"
+    subtitle: "We have another surprise for you, it is a special discount if you answer the next survey"
     accept: "Answer Survey"
     reject: "Dismiss Survey"
   answers_page:
     title: "Micolet Survey!"
     next: "Next"
+  end_page:
+    title: "Thank you very much for completing the survey!"
+    come_back: "Back to home"
+  users:
+    created: "User Created"
+    subscribe: "Thanks for subscribing"
+    survey_completed: "Congratulations you have earned our special discount for answering the survey!"
+  errors:
+    api: "Unavailable service from API"
+    email_rejected: "Email seems not to be real"
+    email_repeated: "The email already exist on database"

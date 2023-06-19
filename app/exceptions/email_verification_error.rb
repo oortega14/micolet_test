@@ -1,0 +1,1 @@
+class EmailVerificationError < StandardError; end

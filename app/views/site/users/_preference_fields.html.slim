@@ -1,4 +1,4 @@
 .mb-2
   = f.check_box :name, { checked: false, class: 'w-4 h-4 text-emerald-600 bg-emerald-100 border-emerald-300 rounded focus:ring-emerald-500 dark:focus:ring-emerald-600 dark:ring-offset-emerald-100 focus:ring-2 dark:bg-emerald-100 dark:border-emerald-600 mr-2',
     data: { form_target: 'checkboxes', action: 'form#onChange' } }, f.object.name
-  = f.label :name, f.object.name, class: 'text-lg'
+  = f.label :name, f.object.name, class: 'lg:text-lg md:text-md sm:text-sm text-xs'

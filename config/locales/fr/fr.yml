@@ -1,0 +1,32 @@
+fr:
+  main_page:
+    title: "Accueillir! Bientôt nous lancerons notre site dans ce pays"
+    subtitle: "Inscrivez-vous pour recevoir notre bulletin d'information"
+    preferences:
+      title: "préférences"
+      first_option: "La mode des femmes"
+      second_option: "La mode masculine"
+      third_option: "Mode enfantine"
+    email:
+      title: "E-mail:"
+      placeholder: "Écrivez votre e-mail ici"
+    submit: "Je veux m'abonner !"
+  confirmation_page:
+    title: "Merci pour votre subscription!"
+    subtitle: "Nous avons une autre surprise pour vous, c'est une remise spéciale si vous répondez au sondage suivant"
+    accept: "répondre à l'enquête"
+    reject: "Passez enquête"
+  answers_page:
+    title: "Sondage Micolet !"
+    next: "Suivant"
+  end_page:
+    title: "Merci beaucoup d'avoir répondu au sondage!"
+    come_back: "Retour au début"
+  users:
+    created: "Utilisateur créé"
+    subscribe: "Merci pour votre subscription"
+    survey_completed: "Félicitations, vous avez gagné notre remise spéciale pour avoir répondu à l'enquête!"
+  errors:
+    api: "Service indisponible à partir de l'API"
+    email_rejected: "L'e-mail ne semble pas être réel, veuillez en saisir un valide"
+    email_repeated: "L'e-mail existe déjà dans la base de données"

@@ -6,6 +6,7 @@ module Site
     def new
       @answer = Answer.new
       @question = @questions.find_by(position: 1)
+      @answering_survey = true
     end
 
     def create
@@ -19,7 +20,8 @@ module Site
         if next_question
           redirect_to next_site_answers_path(language: params[:locale], user_id: @user.id, question_id: next_question.id)
         else
-          redirect_to end_page_site_answers_path(language: params[:locale]), notice: 'Survey completed!'
+          @user.update(answer_survey: true)
+          redirect_to end_page_site_answers_path(language: params[:locale]), notice: { message: t('users.survey_completed'), toast: :success }
         end
       else
         render :new
@@ -27,6 +29,7 @@ module Site
     end
 
     def next
+      @answering_survey = true;
       @question = Question.find(params[:question_id])
       @user = User.find(params[:user_id])
       @answer = Answer.new

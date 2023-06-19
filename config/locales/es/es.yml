@@ -1,7 +1,7 @@
 es:
   main_page:
     title: "Bienvenido! Pronto lanzaremos nuestro sitio en este país"
-    subtitle: "Suscribete para recibir nuestro boletin informativo"
+    subtitle: "Suscribete para recibir nuestro boletín informativo"
     preferences:
       title: "Preferencias"
       first_option: "Moda de Mujer"
@@ -19,3 +19,14 @@ es:
   answers_page:
     title: "Encuesta Micolet!"
     next: "Siguiente"
+  end_page:
+    title: "Muchas Gracias por completar la encuesta !"
+    come_back: "Volver al inicio"
+  users:
+    created: "Usuario Creado"
+    subscribe: "Gracias por suscribirte"
+    survey_completed: "Felicitaciones!, Has ganado nuestro descuento especial por completar la encuesta"
+  errors:
+    api: "Servicio no disponible desde la API"
+    email_rejected: "El Email no parece ser real ingresa uno valido"
+    email_repeated: "El Email ya existe en nuestra base de datos"

@@ -15,7 +15,7 @@ html lang="#{I18n.locale}"
     = javascript_include_tag "application", "data-turbo-track": "reload", defer: true
   body
     = render partial: "shared/notifications", locals: { message: flash[:notice] }
-    = render partial: "shared/locale"
+    = render partial: "shared/locale" unless @answering_survey
     = yield
     script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"
     = render 'layouts/flash'

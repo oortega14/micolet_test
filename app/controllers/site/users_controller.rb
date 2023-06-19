@@ -13,23 +13,28 @@ module Site
 
     def create
       @user = User.new(user_params)
-      @user_verified = UserService.verify_email(@user)
-      if @user_verified.email_verified && @user_verified.save
-        create_selected_preference
-        UserMailer.new_subscriber(@user).deliver_now
-        redirect_to confirmation_site_user_path(id: @user.id), notice: { message: "Usuario creado", toast: :success }
-      else
-        redirect_to root_path, notice: { message: @user.errors.full_messages.join(', '), toast: :error }
+      begin
+        @user_verified = UserService.verify_email(@user)
+        if @user_verified.email_verified && @user_verified.save!
+          create_selected_preference
+          UserMailer.new_subscriber(@user).deliver_now
+          redirect_to confirmation_site_user_path(id: @user.id), notice: { message: t('users.created'), toast: :success }
+        else
+          redirect_to root_path, notice: { message: I18n.t('errors.email_rejected'), toast: :error }
+        end
+      rescue EmailVerificationError, ApiUnavailableError => e
+        redirect_to root_path, notice: { message: e.message, toast: :error }
+      rescue ActiveRecord::RecordInvalid => e
+        redirect_to root_path, notice: { message: t('errors.email_repeated'), toast: :error }
       end
     end
 
     def survey
       if params["answer_survey"] == "true"
-        @user.update(answer_survey: true)
         redirect_to new_site_answer_path(user_id: @user.id, language: params[:locale])
       else
         @user.update(answer_survey: false)
-        redirect_to root_path, notice: "Thanks for subscribing"
+        redirect_to root_path, notice: { message: t('users.subscribe'), toast: :success }
       end
     end
 

@@ -1,0 +1,32 @@
+de:
+  main_page:
+    title: "Willkommen! Bald werden wir unsere Website in diesem Land starten"
+    subtitle: "Abonnieren Sie unseren Newsletter"
+    preferences:
+      title: "Präferenzen"
+      first_option: "Frauenmode"
+      second_option: "Männermode"
+      third_option: "Kindermode"
+    email:
+      title: "Email"
+      placeholder: "Schreiben Sie hier Ihre E-Mail"
+    submit: "Abonniert mich!"
+  confirmation_page:
+    title: "Danke fürs Abonnieren!"
+    subtitle: "Wir haben eine weitere Überraschung für Sie: einen Sonderrabatt, wenn Sie an der nächsten Umfrage teilnehmen"
+    accept: "Beantworten Sie die Umfrage"
+    reject: "Umfrage ablehnen"
+  answers_page:
+    title: "Micolet-Umfrage!"
+    next: "Nächste"
+  end_page:
+    title: "Vielen Dank für das Ausfüllen der Umfrage!"
+    come_back: "Zurück nach oben"
+  users:
+    created: "Vom Benutzer erstellt"
+    subscribe: "Danke fürs Abonnieren"
+    survey_completed: "Herzlichen Glückwunsch, Sie haben unseren Sonderrabatt für die Beantwortung der Umfrage erhalten!"
+  errors:
+    api: "Nicht verfügbarer Dienst von der API"
+    email_rejected: "E-Mail scheint nicht echt zu sein"
+    email_repeated: "Die E-Mail ist bereits in der Datenbank vorhanden"

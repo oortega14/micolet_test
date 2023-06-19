@@ -1,0 +1,1 @@
+class ApiUnavailableError < StandardError; end

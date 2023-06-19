@@ -17,6 +17,7 @@ module MicoletTest
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', 'views', '**', '*.{rb,yml}').to_s]
     config.i18n.available_locales = %i[en es de fr]
     config.i18n.default_locale = :en
+    config.autoload_paths << "#{Rails.root}/app/exceptions"
     # These settings can be overridden in specific environments using the files
     # in config/environments, which are processed later.
     #
