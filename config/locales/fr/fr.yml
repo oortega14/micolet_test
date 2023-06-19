@@ -26,7 +26,15 @@ fr:
     created: "Utilisateur créé"
     subscribe: "Merci pour votre subscription"
     survey_completed: "Félicitations, vous avez gagné notre remise spéciale pour avoir répondu à l'enquête!"
+    email: 
+      body: "Bonjour, vous venez de vous abonner au meilleur site pour obtenir vos vêtements à la mode. Profitez-en !"
+      subject: "Félicitations!"
   errors:
     api: "Service indisponible à partir de l'API"
     email_rejected: "L'e-mail ne semble pas être réel, veuillez en saisir un valide"
     email_repeated: "L'e-mail existe déjà dans la base de données"
+  activerecord:
+    errors:
+      messages:
+        blank: "L'e-mail ne peut pas être vide"
+        taken: "L'e-mail est déjà utilisé"

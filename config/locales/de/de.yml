@@ -26,7 +26,15 @@ de:
     created: "Vom Benutzer erstellt"
     subscribe: "Danke fürs Abonnieren"
     survey_completed: "Herzlichen Glückwunsch, Sie haben unseren Sonderrabatt für die Beantwortung der Umfrage erhalten!"
+    email: 
+      body: "Hallo, du hast dich gerade für die beste Website angemeldet, um deine modische Kleidung zu bekommen. Viel Spaß dabei!"
+      subject: "Herzlichen Glückwunsch!"
   errors:
     api: "Nicht verfügbarer Dienst von der API"
     email_rejected: "E-Mail scheint nicht echt zu sein"
     email_repeated: "Die E-Mail ist bereits in der Datenbank vorhanden"
+  activerecord:
+    errors:
+      messages:
+        blank: "E-Mail darf nicht leer sein"
+        taken: "E-Mail wurde bereits verwendet" 

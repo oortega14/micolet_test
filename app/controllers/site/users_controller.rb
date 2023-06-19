@@ -1,14 +1,17 @@
+# frozen_string_literal: true
+
 module Site
+  # Controller for handling users
   class UsersController < BaseController
     before_action :search_user, only: %i[survey]
 
     def new
       @user = User.new
       @user.preferences.build([
-          { name: "#{t('main_page.preferences.first_option')}" },
-          { name: "#{t('main_page.preferences.second_option')}" },
-          { name: "#{t('main_page.preferences.third_option')}" },
-          ])
+                                { name: t('main_page.preferences.first_option').to_s },
+                                { name: t('main_page.preferences.second_option').to_s },
+                                { name: t('main_page.preferences.third_option').to_s }
+                              ])
     end
 
     def create
@@ -18,19 +21,20 @@ module Site
         if @user_verified.email_verified && @user_verified.save!
           create_selected_preference
           UserMailer.new_subscriber(@user).deliver_now
-          redirect_to confirmation_site_user_path(id: @user.id), notice: { message: t('users.created'), toast: :success }
+          redirect_to confirmation_site_user_path(id: @user.id),
+                      notice: { message: t('users.created'), toast: :success }
         else
           redirect_to root_path, notice: { message: I18n.t('errors.email_rejected'), toast: :error }
         end
       rescue EmailVerificationError, ApiUnavailableError => e
         redirect_to root_path, notice: { message: e.message, toast: :error }
-      rescue ActiveRecord::RecordInvalid => e
+      rescue ActiveRecord::RecordInvalid
         redirect_to root_path, notice: { message: t('errors.email_repeated'), toast: :error }
       end
     end
 
     def survey
-      if params["answer_survey"] == "true"
+      if params['answer_survey'] == 'true'
         redirect_to new_site_answer_path(user_id: @user.id, language: params[:locale])
       else
         @user.update(answer_survey: false)
@@ -38,18 +42,18 @@ module Site
       end
     end
 
-    def confirmation
-    end
+    def confirmation; end
 
     private
 
     def user_params
-      params.require(:user).permit(:id, :email, :answer_survey, :email_verified, preferences_attributes: %i[id name internal_key user_id])
+      params.require(:user).permit(:id, :email, :answer_survey, :email_verified,
+                                   preferences_attributes: %i[id name internal_key user_id])
     end
 
     def create_selected_preference
       selected_preferences = params[:user][:preferences_attributes].values
-      selected_preferences.reject! { |preference| preference["name"] == "0" }
+      selected_preferences.reject! { |preference| preference['name'] == '0' }
       return if selected_preferences.blank?
 
       @user.preferences.destroy_all
@@ -61,6 +65,5 @@ module Site
     def search_user
       @user = User.find(params[:id])
     end
-
   end
 end

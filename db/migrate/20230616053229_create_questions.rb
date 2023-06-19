@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Migration for creating questions
 class CreateQuestions < ActiveRecord::Migration[7.0]
   def change
     create_table :questions, id: :uuid do |t|

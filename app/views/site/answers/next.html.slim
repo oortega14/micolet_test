@@ -8,12 +8,12 @@
         = t('answers_page.title') 
     .container.mx-auto.flex.justify-center
       .lg:w-10/12.md:w-9/12.sm:w-8/12.w-4/12
-        = form_for @answer, url: site_answers_path(language: params[:language]) do |f|
+        = form_for @answer, url: site_answers_path(language: params[:locale]) do |f|
           h3.text-lg.font-bold.mb-4
             = @question.question
           = f.hidden_field :user_id, value: @user.id
           = f.hidden_field :question_id, value: @question.id
-          = f.text_area :answer, rows: 5, class: 'w-full rounded-lg border-2 border-emerald-100 bg-emerald-100', required: true
+          = f.text_area :answer, rows: 5, class: 'w-full rounded-lg border-2 border-emerald-100 bg-emerald-100 p-2', required: true
           .flex.justify-center
            = f.submit t('answers_page.next'), class: 'mt-4 text-2xl rounded-lg bg-emerald-300 text-white px-5 py-2 hover:bg-emerald-400'
 .diagonal-container

@@ -26,7 +26,15 @@ en:
     created: "User Created"
     subscribe: "Thanks for subscribing"
     survey_completed: "Congratulations you have earned our special discount for answering the survey!"
+    email: 
+      body: "Hi, you have just subscribed to the best website to get your fashionable clothes. Enjoy it!"
+      subject: "Congratulations!"
   errors:
     api: "Unavailable service from API"
     email_rejected: "Email seems not to be real"
     email_repeated: "The email already exist on database"
+  activerecord:
+    errors:
+      messages:
+        blank: "Email cannot be blank"
+        taken: "Email has already been taken"

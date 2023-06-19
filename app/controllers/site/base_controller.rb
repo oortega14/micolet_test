@@ -1,6 +1,9 @@
+# frozen_string_literal: true
+
 module Site
+  # Controller to manage locale and inherit all aplication properties
   class BaseController < ApplicationController
-    layout "site"
+    layout 'site'
 
     before_action :set_locale
 

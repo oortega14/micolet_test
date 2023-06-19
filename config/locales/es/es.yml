@@ -1,6 +1,6 @@
 es:
   main_page:
-    title: "Bienvenido! Pronto lanzaremos nuestro sitio en este país"
+    title: "¡Bienvenido! Pronto lanzaremos nuestro sitio en este país"
     subtitle: "Suscribete para recibir nuestro boletín informativo"
     preferences:
       title: "Preferencias"
@@ -26,7 +26,13 @@ es:
     created: "Usuario Creado"
     subscribe: "Gracias por suscribirte"
     survey_completed: "Felicitaciones!, Has ganado nuestro descuento especial por completar la encuesta"
+    email: "Hola, acabas de suscribirte a la mejor página para conseguir tu ropa a la moda. ¡Disfrútala!"
   errors:
     api: "Servicio no disponible desde la API"
     email_rejected: "El Email no parece ser real ingresa uno valido"
     email_repeated: "El Email ya existe en nuestra base de datos"
+  activerecord:
+    errors:
+      messages:
+        blank: "Email cannot be blank"
+        taken: "Email has already been taken"
