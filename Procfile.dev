@@ -2,3 +2,4 @@ js: yarn build --watch
 css: yarn build:css --watch
 redis: redis-server
 sidekiq: bundle exec sidekiq
+web: rails server -p 3000
