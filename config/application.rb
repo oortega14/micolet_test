@@ -22,6 +22,7 @@ module MicoletTest
     config.i18n.available_locales = %i[en es de fr]
     config.i18n.default_locale = :en
     config.autoload_paths << "#{Rails.root}/app/exceptions"
+    config.active_job.queue_adapter = :sidekiq
     # These settings can be overridden in specific environments using the files
     # in config/environments, which are processed later.
     #

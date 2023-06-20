@@ -33,7 +33,7 @@ gem 'cssbundling-rails'
 gem 'jbuilder'
 
 # Use Redis adapter to run Action Cable in production
-gem 'redis', '~> 4.0'
+gem 'redis', '~> 5.0', '>= 5.0.6'
 
 # Use dotenv to read variables from .env
 gem 'dotenv-rails', groups: %i[development test]
@@ -53,6 +53,9 @@ gem 'bootsnap', require: false
 gem 'faraday', '~> 2.7', '>= 2.7.6'
 # Use Sass to process CSS
 # gem "sassc-rails"
+
+# add sidekiq for asynchronus jobs
+gem 'sidekiq', '~>6.5.5'
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
@@ -82,4 +85,5 @@ group :test do
   gem 'capybara'
   gem 'selenium-webdriver'
   gem 'webdrivers'
+  gem 'rails-controller-testing'
 end

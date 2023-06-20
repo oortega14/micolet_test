@@ -3,8 +3,7 @@
 module Site
   # Controller for handling answers
   class AnswersController < BaseController
-    before_action :search_survey, only: %i[new]
-    before_action :search_user, only: %i[new]
+    before_action :set_survey, :set_user, only: %i[new]
 
     def new
       @answer = Answer.new
@@ -28,7 +27,9 @@ module Site
       @answer = Answer.new
     end
 
-    def end_page; end
+    def end_page
+      # Render de end_page to thanks users for answer surveys
+    end
 
     def build_variables
       @answer = Answer.new(answer_params)
@@ -55,12 +56,12 @@ module Site
                   notice: { message: t('users.survey_completed'), toast: :success }
     end
 
-    def search_survey
+    def set_survey
       @survey = Survey.find_by(language: params[:locale])
       @questions = @survey.questions
     end
 
-    def search_user
+    def set_user
       @user = User.find(params['user_id'])
     end
 

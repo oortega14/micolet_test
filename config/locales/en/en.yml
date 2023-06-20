@@ -30,11 +30,21 @@ en:
       body: "Hi, you have just subscribed to the best website to get your fashionable clothes. Enjoy it!"
       subject: "Congratulations!"
   errors:
+    format: '%{attribute} %{message}'
     api: "Unavailable service from API"
     email_rejected: "Email seems not to be real"
     email_repeated: "The email already exist on database"
-  activerecord:
+  activerecord: 
     errors:
+      models:
+        user: "User"
+      attributes:
+        user:
+          email: "Email"
+          email_verified: "Email verified"
+          answer_survey: "Survey answeredu"
       messages:
-        blank: "Email cannot be blank"
-        taken: "Email has already been taken"
+        record_invalid: "Validation failed: %{errors}"
+        blank: "cannot be blank"
+        taken: "has already been taken"
+      email_rejected: "Email rejected"

@@ -28,11 +28,21 @@ es:
     survey_completed: "Felicitaciones!, Has ganado nuestro descuento especial por completar la encuesta"
     email: "Hola, acabas de suscribirte a la mejor página para conseguir tu ropa a la moda. ¡Disfrútala!"
   errors:
-    api: "Servicio no disponible desde la API"
-    email_rejected: "El Email no parece ser real ingresa uno valido"
-    email_repeated: "El Email ya existe en nuestra base de datos"
-  activerecord:
+    format: '%{attribute} %{message}'
+    api: "Servicio de API no disponible"
+    email_rejected: "Email parece no ser real"
+    email_repeated: "The email ya existe en nuestra base de datos"
+  activerecord: 
     errors:
+      models:
+        user: "Usuario"
+      attributes:
+        user:
+          email: "Email"
+          email_verified: "Email verificado"
+          answer_survey: "Encuesta contestada"
       messages:
-        blank: "Email cannot be blank"
-        taken: "Email has already been taken"
+        record_invalid: "Validación fallida: %{errors}"
+        blank: "No puede estar blanca"
+        taken: "Ya ha sido tomado"
+      email_rejected: "Email rechazado"

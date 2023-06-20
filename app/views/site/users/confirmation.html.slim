@@ -11,7 +11,7 @@
     .container.mx-auto.flex.justify-center
       .w-6/12
         .mb-4.flex.justify-center
-          = button_to t('confirmation_page.reject'),  survey_site_user_path(id: params[:id], answer_survey: false), method: :patch, class: "text-2xl disabled:opacity-75 disabled:hover:bg-emerald-300 rounded-lg bg-emerald-300 text-white border-2 border-white py-3 hover:bg-emerald-400 px-5 lg:mr-20 md:mr-10 mr-6 lg:w-80"
-          = button_to t('confirmation_page.accept'),  survey_site_user_path(id: params[:id], answer_survey: true), method: :patch, class: "text-2xl disabled:opacity-75 disabled:hover:bg-emerald-300 rounded-lg bg-emerald-300 text-white border-2 border-white py-3 hover:bg-emerald-400 px-5 lg:ml-20 md:ml-10 ml-6 lg:w-80"
+          = button_to t('confirmation_page.reject'),  survey_site_user_path(id: params[:id], answer_survey: false), method: :post, class: "text-2xl disabled:opacity-75 disabled:hover:bg-emerald-300 rounded-lg bg-emerald-300 text-white border-2 border-white py-3 hover:bg-emerald-400 px-5 lg:mr-20 md:mr-10 mr-6 lg:w-80"
+          = button_to t('confirmation_page.accept'),  survey_site_user_path(id: params[:id], answer_survey: true), method: :post, class: "text-2xl disabled:opacity-75 disabled:hover:bg-emerald-300 rounded-lg bg-emerald-300 text-white border-2 border-white py-3 hover:bg-emerald-400 px-5 lg:ml-20 md:ml-10 ml-6 lg:w-80"
 .diagonal-container
   .diagonal-line-two.bg-emerald-300
