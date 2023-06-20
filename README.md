@@ -1,24 +1,21 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This Project is ruby app created with Esbuild who is 100 times faster than webpack at least they say that, 
+all you have to do are a few steps to start this project on your local.
 
-Things you may want to cover:
+First Step:
+- Clone this repository
 
-* Ruby version
+Second Step
+- run bundle install on command window
 
-* System dependencies
+Third Step
+- run yarn install on command window
 
-* Configuration
+Fourth Step
+- .env.sample is the file where you can allocate the environmental variables just remove .sample
 
-* Database creation
+Fifth Step
+- run bin/dev on command window and that's all
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+I hope  to hear from you soon ! 
