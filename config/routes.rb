@@ -4,6 +4,7 @@ require 'sidekiq/web'
 # require 'sidekiq-scheduler/web'
 
 Rails.application.routes.draw do
+  root to: 'site/users#new'
   namespace :site, path: '/' do
     scope ':locale' do
       root to: 'users#new'
