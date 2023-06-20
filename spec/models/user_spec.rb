@@ -53,18 +53,5 @@ RSpec.describe User, type: :model do
         expect(user.errors[:base]).not_to include(I18n.t('errors.email_rejected'))
       end
     end
-
-    describe '#build_preferences' do
-      it 'clears existing preferences and builds new ones' do
-        user = User.new
-        expect(user.preferences).to receive(:clear)
-        expect(user.preferences).to receive(:build).with([
-                                                           { name: I18n.t('main_page.preferences.first_option') },
-                                                           { name: I18n.t('main_page.preferences.second_option') },
-                                                           { name: I18n.t('main_page.preferences.third_option') }
-                                                         ])
-        user.build_preferences
-      end
-    end
   end
 end

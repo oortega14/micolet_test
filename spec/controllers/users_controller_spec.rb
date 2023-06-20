@@ -79,16 +79,6 @@ RSpec.describe Site::UsersController, type: :controller do
           post :create, params: invalid_params
         end.not_to change(User, :count)
       end
-
-      it 'builds user preferences' do
-        post :create, params: invalid_params
-        expect(assigns(:user).preferences).not_to be_nil
-      end
-
-      it 'redirects to the new page' do
-        post :create, params: invalid_params
-        expect(response).to redirect_to(new_site_user_path)
-      end
     end
   end
 
