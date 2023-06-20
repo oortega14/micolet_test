@@ -1,7 +1,10 @@
 # README
 
-This Project is ruby app created with Esbuild who is 100 times faster than webpack at least they say that, 
-all you have to do are a few steps to start this project on your local.
+# Versions RoR
+- Ruby 3.1.3
+- Rails 7.0.5
+
+This Project is ruby app created with Esbuild, all you have to do are a few steps to start this project on your local.
 
 First Step:
 - Clone this repository
@@ -17,5 +20,8 @@ Fourth Step
 
 Fifth Step
 - run bin/dev on command window and that's all
+
+# Specs
+To run the specs is necessary to run the command bin/dev because specs need background jobs in redis
 
 I hope  to hear from you soon ! 
