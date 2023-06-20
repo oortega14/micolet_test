@@ -1,5 +1,13 @@
 # frozen_string_literal: true
 
+# create_table 'users', id: :uuid, default: -> { 'gen_random_uuid()' }, force: :cascade do |t|
+#   t.string 'email'
+#   t.boolean 'answer_survey'
+#   t.boolean 'email_verified'
+#   t.datetime 'created_at', null: false
+#   t.datetime 'updated_at', null: false
+# end
+
 # Represents Users
 class User < ApplicationRecord
   after_create :send_email
