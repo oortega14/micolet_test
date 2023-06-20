@@ -33,8 +33,17 @@ fr:
     api: "Service indisponible à partir de l'API"
     email_rejected: "L'e-mail ne semble pas être réel, veuillez en saisir un valide"
     email_repeated: "L'e-mail existe déjà dans la base de données"
-  activerecord:
+  activerecord: 
     errors:
+      models:
+        user: "Utilisateur"
+      attributes:
+        user:
+          email: "Email"
+          email_verified: "Email verifié"
+          answer_survey: "Réponse à l'enquête"
       messages:
-        blank: "L'e-mail ne peut pas être vide"
-        taken: "L'e-mail est déjà utilisé"
+        record_invalid: "Validation échouée: %{errors}"
+        blank: "ne peut être vide"
+        taken: "a déjà été pris"
+      email_rejected: "E-mail rejeté"

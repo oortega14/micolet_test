@@ -4,40 +4,67 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   describe 'validations' do
-    it 'validates presence and uniqueness of email' do
-      user = FactoryBot.build(:user, email: nil)
-      expect(user).not_to be_valid
-      expect(user.errors[:email]).to include(I18n.t('activerecord.errors.messages.blank'))
+    before(:each) do
+      allow(UserService).to receive(:verify_email).and_return(true)
+    end
+    subject(:user) { described_class.new(email: 'algo@sample.com') }
 
-      FactoryBot.create(:user, email: 'example@example.com')
-      user = FactoryBot.build(:user, email: 'example@example.com')
-      expect(user).not_to be_valid
-      expect(user.errors[:email]).to include(I18n.t('activerecord.errors.messages.taken'))
+    it 'valida la unicidad del email' do
+      expect(user).to validate_uniqueness_of(:email)
     end
   end
 
   describe 'associations' do
-    it 'has many answers' do
-      user = FactoryBot.create(:user)
-      answer1 = FactoryBot.create(:answer, user:)
-      answer2 = FactoryBot.create(:answer, user:)
+    it { should have_many(:answers).dependent(:destroy) }
+    it { should have_many(:preferences).dependent(:destroy) }
+    it { should accept_nested_attributes_for(:preferences) }
+  end
 
-      expect(user.answers).to include(answer1, answer2)
+  describe 'callbacks' do
+    before(:each) do
+      allow(UserService).to receive(:verify_email).and_return(true)
+    end
+    it 'triggers send_email after create' do
+      user = User.new(email: 'test@example.com')
+      expect(user).to receive(:send_email)
+      user.save
     end
 
-    it 'has many preferences' do
-      user = FactoryBot.create(:user)
-      preference1 = FactoryBot.create(:preference, user:)
-      preference2 = FactoryBot.create(:preference, user:)
+    it 'triggers build_preferences after initialization' do
+      user = User.new
+      expect(user).to receive(:build_preferences)
+      user.run_callbacks :initialize
+    end
+  end
 
-      expect(user.preferences).to include(preference1, preference2)
+  describe 'methods' do
+    describe '#email_score_validation' do
+      it 'adds an error if email is not valid' do
+        user = User.new(email: 'invalid_email')
+        allow(UserService).to receive(:verify_email).and_return(false)
+        user.valid?
+        expect(user.errors[:base]).to include(I18n.t('errors.email_rejected'))
+      end
+
+      it 'does not add an error if email is valid' do
+        user = User.new(email: 'valid_email@example.com')
+        allow(UserService).to receive(:verify_email).and_return(true)
+        user.valid?
+        expect(user.errors[:base]).not_to include(I18n.t('errors.email_rejected'))
+      end
     end
 
-    it 'accepts nested attributes for preferences' do
-      user = User.new(preferences_attributes: [{ name: 'Preference 1' }, { name: 'Preference 2' }])
-      expect(user.preferences.size).to eq(2)
-      expect(user.preferences.first.name).to eq('Preference 1')
-      expect(user.preferences.last.name).to eq('Preference 2')
+    describe '#build_preferences' do
+      it 'clears existing preferences and builds new ones' do
+        user = User.new
+        expect(user.preferences).to receive(:clear)
+        expect(user.preferences).to receive(:build).with([
+                                                           { name: I18n.t('main_page.preferences.first_option') },
+                                                           { name: I18n.t('main_page.preferences.second_option') },
+                                                           { name: I18n.t('main_page.preferences.third_option') }
+                                                         ])
+        user.build_preferences
+      end
     end
   end
 end

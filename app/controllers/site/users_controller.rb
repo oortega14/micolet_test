@@ -5,6 +5,11 @@ module Site
   class UsersController < BaseController
     before_action :set_user, only: %i[survey]
 
+    def index
+      @user = User.new
+      render :new
+    end
+
     def new
       @user = User.new
     end
@@ -16,8 +21,8 @@ module Site
                     notice: { message: t('users.created'), toast: :success }
       end
     rescue EmailVerificationError, ApiUnavailableError, ActiveRecord::RecordInvalid => e
+      render :new, status: :bad_request
       @user.send(:build_preferences)
-      redirect_to new_site_user_path
     end
 
     def survey
@@ -25,7 +30,7 @@ module Site
         redirect_to new_site_answer_path(user_id: @user.id, language: params[:locale])
       else
         @user.update(answer_survey: false)
-        redirect_to root_path, notice: { message: t('users.subscribe'), toast: :success }
+        redirect_to site_root_path, notice: { message: t('users.subscribe'), toast: :success }
       end
     end
 

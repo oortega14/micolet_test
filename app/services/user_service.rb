@@ -6,7 +6,10 @@ class UserService < ApplicationService
     abstract_api_url = "#{ENV['ABSTRACT_API_URL']}?api_key=#{ENV['ABSTRACT_API_KEY']}&email=#{user.email}"
 
     response = Faraday.get(abstract_api_url)
+    
+    user.errors.add(:base, I18n.t('errors.api')) unless response.success?
     raise ApiUnavailableError, I18n.t('errors.api') unless response.success?
+
 
     body = JSON.parse(response.body)
     result = body['quality_score'].to_f

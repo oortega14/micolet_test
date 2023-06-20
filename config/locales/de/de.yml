@@ -33,8 +33,17 @@ de:
     api: "Nicht verfügbarer Dienst von der API"
     email_rejected: "E-Mail scheint nicht echt zu sein"
     email_repeated: "Die E-Mail ist bereits in der Datenbank vorhanden"
-  activerecord:
+  activerecord: 
     errors:
+      models:
+        user: "Benutzer"
+      attributes:
+        user:
+          email: "Email"
+          email_verified: "Email überprüft"
+          answer_survey: "Umfrage beantwortet"
       messages:
-        blank: "E-Mail darf nicht leer sein"
-        taken: "E-Mail wurde bereits verwendet" 
+        record_invalid: "Überprüfung fehlgeschlagen: %{errors}"
+        blank: "darf nicht leer sein"
+        taken: "ist bereits vergeben"
+      email_rejected: "E-Mail abgelehnt"

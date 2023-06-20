@@ -1,4 +1,4 @@
-select.fixed.rounded-lg.mt-4.ml-4.border-2.border-emerald-300.text-center.w-1/12.py-1 data-controller="language-selector" data-action="change->language-selector#changeLocale"
+select.rounded-lg.mt-4.ml-4.border-2.border-emerald-300.text-center.w-1/12.py-1 data-controller="language-selector" data-action="change->language-selector#changeLocale"
   - I18n.available_locales.each do |locale|
     - if I18n.locale.to_s == locale.to_s
       option value="#{url_for(locale: locale)}" selected="selected" = t(".lang.#{locale}")

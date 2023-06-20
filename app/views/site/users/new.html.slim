@@ -1,6 +1,6 @@
 .bg-transparent.h-screen.flex.justify-center.items-start
   #toast-container data-controller="toast"
-  .bg-white.lg:w-4/5.h-auto.md:w-3/5.rounded-xl.lg:pt-8.md:pt-5.sm:pt-7.pt-4.border-2.border-emerald-400.h-[300px]
+  .bg-white.lg:w-4/5.h-auto.md:w-3/5.rounded-xl.lg:pt-8.md:pt-5.sm:pt-7.pt-10.border-2.border-emerald-400
     .flex.justify-center.m-0
       = image_tag('micolet_logo.png', alt: 'Logo Micolet', class: 'lg:w-[400px] md:w-[350px] sm:w-[250px] w-[200px]')
     .container.mx-auto.lg:p-4.p-1.text-center
@@ -9,7 +9,7 @@
       h2.lg:text-xl.md:text-md.sm:text-md.text-md.font-bold.mb-2 
         = t("main_page.subtitle")
     .container.mx-auto.lg:p-4.px-4.flex.justify-center data-controller="form"
-      .w-8/12
+      .w-8/12 data-controller="form-reset"
         = form_for(@user, url: site_users_path) do |f|
           div
             = f.label :email, t('main_page.email.title'), class: 'block lg:text-xl md:text-lg sm:text-md text-sm font-semibold'
