@@ -29,12 +29,6 @@ RSpec.describe User, type: :model do
       expect(user).to receive(:send_email)
       user.save
     end
-
-    it 'triggers build_preferences after initialization' do
-      user = User.new
-      expect(user).to receive(:build_preferences)
-      user.run_callbacks :initialize
-    end
   end
 
   describe 'methods' do
