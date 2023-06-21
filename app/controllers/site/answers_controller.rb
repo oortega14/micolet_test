@@ -22,7 +22,6 @@ module Site
 
     def next
       @answering_survey = true
-      debugger
       @question = Question.find(params[:question_id])
       @user = User.find(params[:user_id])
       @answer = Answer.new
