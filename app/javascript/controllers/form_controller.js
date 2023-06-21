@@ -10,23 +10,21 @@ export default class extends Controller {
 
   onChange(e) {
     const emailInput = this.element.querySelector('input.emailInput');
-    console.log(this.emailInputTarget.value)
-    const parentDiv = emailInput.parentNode;
     const email = emailInput.value.trim();
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const spanMessage = this.element.querySelector('span.message');;
 
     if (!emailRegex.test(email)) {
       emailInput.classList.add('error');
-      parentDiv.nextElementSibling.textContent = 'Email no válido';
+      spanMessage.textContent = 'Email no válido';
 
-      const targetSpan = this.element.querySelector('span.message');
       if (!this.constructor.errorPresent) {
-        targetSpan.classList.add('error-message');
+        spanMessage.classList.add('error-message');
         this.constructor.errorPresent = true;
       }
     } else {
       emailInput.classList.remove('error');
-      parentDiv.nextElementSibling.textContent = '';
+      spanMessage.textContent = '';
       this.constructor.errorPresent = false;
     }
 

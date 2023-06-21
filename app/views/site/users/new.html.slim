@@ -14,7 +14,7 @@
           div
             = f.label :email, t('main_page.email.title'), class: 'block lg:text-xl md:text-lg sm:text-md text-sm font-semibold'
             = f.text_field :email, class: 'emailInput form-input mt-1 mb-2 py-2 block w-full p-1 rounded-lg border-2 border-emerald-300 text-center', placeholder: (t('main_page.email.placeholder')),
-              data: { form_target: 'emailInput', action: 'form#onChange' }
+              data: { form_target: 'emailInput', action: 'form#onChange', initial_value: @user.email }
           span.mb-2.message
           .mb-2
             p.font-semibold.lg:mb-4.md:mb-2.mb-1.lg:text-xl.md:text-lg.sm:text-md.text-sm 
