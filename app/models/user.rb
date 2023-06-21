@@ -11,11 +11,10 @@
 # Represents Users
 class User < ApplicationRecord
   after_create :send_email
-  after_initialize :build_preferences
 
   validates_presence_of :email
   validate :email_score_validation
-  validates :email, uniqueness: true# { message: 'taken' }
+  validates :email, uniqueness: true
 
   has_many :answers, dependent: :destroy
   has_many :preferences, dependent: :destroy
@@ -30,14 +29,5 @@ class User < ApplicationRecord
 
   def send_email
     UserEmailJob.perform_later(self.id)
-  end
-
-  def build_preferences
-    self.preferences.clear
-    self.preferences.build([
-                            { name: I18n.t('main_page.preferences.first_option') },
-                            { name: I18n.t('main_page.preferences.second_option') },
-                            { name: I18n.t('main_page.preferences.third_option') }
-                          ])
   end
 end

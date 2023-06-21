@@ -9,7 +9,8 @@ export default class extends Controller {
   }
 
   onChange(e) {
-    const emailInput = this.emailInputTarget;
+    const emailInput = this.element.querySelector('input.emailInput');
+    console.log(this.emailInputTarget.value)
     const parentDiv = emailInput.parentNode;
     const email = emailInput.value.trim();
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -35,7 +36,6 @@ export default class extends Controller {
   checkIfAnyCheckboxChecked() {
     const checkboxes = this.checkboxesTargets;
     const checked = Array.from(checkboxes).some((checkbox) => checkbox.checked);
-
     if (checked && !this.constructor.errorPresent) {
       this.buttonTarget.disabled = false;
     } else {

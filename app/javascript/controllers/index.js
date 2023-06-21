@@ -7,9 +7,6 @@ import { application } from "./application"
 import FormController from "./form_controller"
 application.register("form", FormController)
 
-import FormResetController from "./form_reset_controller"
-application.register("form-reset", FormResetController)
-
 import LanguageSelectorController from "./language_selector_controller"
 application.register("language-selector", LanguageSelectorController)
 

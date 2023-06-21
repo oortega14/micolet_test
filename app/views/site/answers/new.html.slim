@@ -15,6 +15,6 @@
           = f.hidden_field :question_id, value: @question.id
           = f.text_area :answer, rows: 5, class: 'w-full rounded-lg border-2 border-emerald-100 bg-emerald-100 p-3', required: true
           .flex.justify-center
-            = f.submit t('answers_page.next'), class: 'mt-4 text-2xl rounded-lg bg-emerald-300 text-white px-5 py-2 hover:bg-emerald-400'
+            = f.submit t('answers_page.next'), class: 'mt-4 text-2xl rounded-lg bg-emerald-300 text-white px-5 py-2 hover:bg-emerald-400 cursor-pointer'
 .diagonal-container
   .diagonal-line-two.bg-emerald-300

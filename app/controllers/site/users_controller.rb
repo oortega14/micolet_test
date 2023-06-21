@@ -7,11 +7,13 @@ module Site
 
     def index
       @user = User.new
+      build_preferences(@user)
       render :new
     end
 
     def new
       @user = User.new
+      build_preferences(@user)
     end
 
     def create
@@ -21,8 +23,9 @@ module Site
                     notice: { message: t('users.created'), toast: :success }
       end
     rescue EmailVerificationError, ApiUnavailableError, ActiveRecord::RecordInvalid => e
+      @user.preferences.clear
+      build_preferences(@user)
       render :new, status: :bad_request
-      @user.send(:build_preferences)
     end
 
     def survey
@@ -50,6 +53,14 @@ module Site
 
     def set_user
       @user = User.find(params[:id])
+    end
+
+    def build_preferences(user)
+      user.preferences.build([
+                              { name: I18n.t('main_page.preferences.first_option') },
+                              { name: I18n.t('main_page.preferences.second_option') },
+                              { name: I18n.t('main_page.preferences.third_option') }
+                            ])
     end
   end
 end

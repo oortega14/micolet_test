@@ -6,7 +6,7 @@ class CreatePreferences < ActiveRecord::Migration[7.0]
     create_table :preferences, id: :uuid do |t|
       t.string :name
       t.string :internal_key
-      t.references :user, foreign_key: true, null: true, type: :uuid
+      t.references :user, foreign_key: true, null: false, type: :uuid
 
       t.timestamps
     end
