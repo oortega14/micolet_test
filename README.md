@@ -19,6 +19,9 @@ Fourth Step
 - .env.sample is the file where you can allocate the environmental variables just remove .sample
 
 Fifth Step
+- run rails db:seed
+
+Sixth Step
 - run bin/dev on command window and that's all
 
 # Specs
