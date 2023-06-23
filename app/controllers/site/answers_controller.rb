@@ -31,15 +31,16 @@ module Site
       # Render de end_page to thanks users for answer surveys
     end
 
+    
+    private
+
     def build_variables
       @answer = Answer.new(answer_params)
       @survey = @answer.question.survey
       @questions = @survey.questions
       @user = @answer.user
     end
-
-    private
-
+    
     def redirect_to_next_question
       next_question = @questions.where('position > ?', @answer.question.position).order(:position).first
       if next_question

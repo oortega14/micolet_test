@@ -41,6 +41,12 @@ gem 'dotenv-rails', groups: %i[development test]
 # Use slim templates
 gem 'slim-rails'
 
+# change pry console and debugging
+gem 'pry-rails'
+
+# User webmock to simulate api responses
+gem 'webmock'
+
 # Use Rubocop for style checking and code formatting
 gem 'rubocop', '~> 1.52', '>= 1.52.1'
 
@@ -62,7 +68,8 @@ gem 'sidekiq', '~>6.5.5'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
-  gem 'debug', platforms: %i[mri mingw x64_mingw]
+  # gem 'debug', platforms: %i[mri mingw x64_mingw]
+  gem 'pry-byebug'
   gem 'factory_bot_rails', '~> 6.2'
   gem 'faker', '~> 3.2'
   gem 'letter_opener'
