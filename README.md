@@ -1,6 +1,6 @@
 # README
 
-# Versions RoR
+# Versions
 - Ruby 3.1.3
 - Rails 7.0.5
 
